@@ -1,29 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
 
-class Square extends React.Component{ //this is now a function component
-    constructor(props){
-        super(props);
-            this.state = {
-                winningSquare: false,
-        }
-    }
 
-    changeState = () => {this.setState({winningSquare: true})}
-     
-    render() {
-        let buttonClass = this.state.winningSquare ? 'winningSquare' : 'square';
-        return (
-        <button 
-            className={buttonClass}
-            onClick={this.props.onClick}
-        > 
-            {this.props.value}
+function Square(props){
+    return (
+        <button className="square"  onClick={props.onClick}>
+            {props.value}
         </button>
-        );
-    }
+    );
 }
 
 class Board extends React.Component {
@@ -109,7 +95,7 @@ class Game extends React.Component {
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
-        const winner = calculateWinner(current.squares);
+        let winner = calculateWinner(current.squares);
 
         const moves = history.map((step, move) => {
             const desc = move ?
@@ -157,18 +143,20 @@ function calculateWinner(squares){
         [0, 1, 2], //straight horizontals
         [3, 4, 5],
         [6, 7, 8],
+        
         [0, 3, 6], //straight verticals
         [1, 4, 7],
         [2, 5, 8],
+        
         [0, 4, 8], //diagonals
         [2, 4, 6],
     ];
     for (let i = 0; i < lines.length; i++){
         const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]){
-            // winningSquares(squares, a, b, c);
-            Square.changeState(true);
+            //return the winner square and the matching winning line
             return squares[a]; //returns the winner, which is the value of the square that passes the above check
+            
         }
         else if (squares.every(square => square != null)) {
             return 'tied';
@@ -176,13 +164,6 @@ function calculateWinner(squares){
     }
     return null;
 }
-
-// function winningSquares(a, b, c) {
-//     Square[a].setState = {winningSquare: true};
-//     Square[b].setState = {winningSquare: true};
-//     Square[c].setState = {winningSquare: true};
-// }
-
 
 // ========================================
 
