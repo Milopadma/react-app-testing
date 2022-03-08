@@ -95,7 +95,7 @@ class Game extends React.Component {
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
-        let winner = calculateWinner(current.squares);
+        const winner = calculateWinner(current.squares);
 
         const moves = history.map((step, move) => {
             const desc = move ?
@@ -154,7 +154,6 @@ function calculateWinner(squares){
     for (let i = 0; i < lines.length; i++){
         const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]){
-            //return the winner square and the matching winning line
             return squares[a]; //returns the winner, which is the value of the square that passes the above check
             
         }
