@@ -16,6 +16,7 @@ class Board extends React.Component {
       //initial check if array is undefined
       if (this.props.match.includes(i)) {
         //if array is not undefined, check if i is in array
+        console.log(this.props.match)
         return "squareWin"; //if i is in array, then this square is the winning square
       } else {
         return "square"; //else, this square is not the winning square
@@ -159,8 +160,8 @@ function calculateWinner(squares) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return { winner: squares[a], match: lines[i] }; //returns the winner, which is the value of the square that passes the above check
-    } else if (squares.every((square) => square != null)) {
-      return "tied";
+    } else if (squares.every((square) => square != null)) {        
+      return {winner: "tied", match: lines[0-9]}; //if all squares are filled, then it is a tie
     }
   }
   return null;
