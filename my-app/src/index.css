@@ -1,55 +1,96 @@
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
-  }
-  
-  ol, ul {
-    padding-left: 30px;
-  }
-  
-  .board-row:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  
-  .status {
-    margin-bottom: 10px;
-  }
-  
-  .square {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 34px;
-  }
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+  background: rgb(77, 80, 76);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-  .winningSquare{
-    border: 1px solid red;
-  }
-  
-  .square:focus {
-    outline: none;
-  }
-  
-  .kbd-navigation .square:focus {
-    background: #ddd;
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .game-info {
-    margin-left: 20px;
-  }
-  
+div {
+  color: aliceblue;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+ol,
+ul {
+  padding-left: 30px;
+}
+
+p {
+  color: aliceblue;
+}
+
+button {
+  background: aliceblue;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: grey;
+  border: 1px solid #999;
+  float: left;
+  font-size: 9vw;
+  font-weight: bold;
+  color: white;
+  line-height: 34px;
+  height: 10vw;
+  width: 10vw;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+}
+
+.squareWin {
+  background: grey;
+  border: 1px solid #999;
+  float: left;
+  font-size: 9vw;
+  font-weight: bold;
+  color: white;
+  line-height: 34px;
+  height: 10vw;
+  width: 10vw;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  border: 5px solid red;
+  border-radius: 2px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
